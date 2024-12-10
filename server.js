@@ -4,8 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const productRoutes = require("./routes/productRoutes"); // Import product routes
-  const app = express();
-
+const app = express();
 
 // Middleware
 app.use(cors()); // Allow cross-origin requests
@@ -14,11 +13,8 @@ app.use(express.json()); // Parse incoming request bodies as JSON
 // MongoDB Atlas connection setup
 const mongoURI = process.env.MONGO_URI; // Use environment variable for MongoDB URI
 
-// MongoDB connection setup
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+// MongoDB connection setup (updated)
+mongoose.connect(mongoURI)
   .then(() => {
     console.log("Connected to MongoDB Atlas");
   })
